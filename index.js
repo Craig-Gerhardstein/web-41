@@ -8,9 +8,19 @@ const PORT = process.env.PORT || 5000
 
 server.use(express.json())
 
-server.get('/api/*', (req, res) => {
+server.get('/api/craig', (req, res) => {
     res.json({
-        cohort: 'Web 41',
+        Hello: 'Craig',
+    })
+})
+server.get('/api/gabe', (req, res) => {
+    res.json({
+        Hello: 'Gabe, the best node.js teacher in the world ',
+    })
+})
+server.get('*', (req, res) => {
+    res.json({
+        message: 'please use one of these end points /api/craig/ , /api/gabe'
     })
 })
 
